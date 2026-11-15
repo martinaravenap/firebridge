@@ -458,6 +458,23 @@ html,body{overflow-x:clip}
   .hero::after{left:75%;top:calc(50% - min(310px,46vw))}
   .hero::before{left:75%;top:calc(50% - 320px)}
 }
+
+/* ---------- SEEN FROM SPACE ---------- */
+#spaceMap,#tlMap{position:absolute;inset:0;background:#0A0A0A}
+.swipe .handle{position:absolute;top:0;bottom:0;left:50%;width:0;z-index:600;cursor:ew-resize;touch-action:none;outline:none}
+.swipe .handle::before{content:"";position:absolute;top:0;bottom:0;left:-1px;width:2px;background:#F4F4F1;box-shadow:0 0 12px rgba(168,85,247,.9)}
+.swipe .grip{position:absolute;top:50%;left:0;transform:translate(-50%,-50%);width:46px;height:46px;border-radius:50%;background:#F4F4F1;color:#0A0A0A;display:grid;place-items:center;box-shadow:0 0 0 4px rgba(168,85,247,.35),0 10px 30px rgba(0,0,0,.45);transition:transform .15s}
+.swipe .handle:hover .grip,.swipe .handle:focus-visible .grip,.swipe .handle.drag .grip{transform:translate(-50%,-50%) scale(1.08)}
+.stag{position:absolute;top:14px;z-index:550;display:inline-flex;flex-direction:column;gap:2px;padding:8px 13px;border-radius:12px;font-size:12px;letter-spacing:.02em;color:#D8D8D2;background:rgba(10,10,10,.6);border:1px solid rgba(244,244,241,.2);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);pointer-events:none;max-width:44%}
+.stag b{font-size:13.5px;color:#F4F4F1;font-weight:600;letter-spacing:-.01em}
+.stag.left{left:14px}.stag.right{right:14px;text-align:right}
+.sitestory{color:var(--ink-2);max-width:68ch;font-size:15px;margin:0}
+.tl{aspect-ratio:1/1;min-height:0;margin-top:0}
+.tlyear{position:absolute;right:16px;top:12px;z-index:550;font-family:"Instrument Serif",Georgia,serif;font-style:italic;font-size:clamp(44px,6vw,72px);line-height:1;color:#F4F4F1;text-shadow:0 2px 24px rgba(0,0,0,.6);pointer-events:none}
+#tlMap .leaflet-tile-pane .leaflet-layer{transition:opacity .45s ease}
+@media (max-width:600px){.stag{font-size:11px;padding:6px 9px}.stag b{font-size:12px}.swipe .grip{width:40px;height:40px}}
+
+@media (max-width:760px){.mapframe{aspect-ratio:auto;height:440px;min-height:0;width:100%}.tl{height:auto;aspect-ratio:1/1}}
 </style>
 </head>
 <body class="loading">
@@ -476,10 +493,10 @@ html,body{overflow-x:clip}
   <div class="wrap">
     <div class="nav-inner">
       <a class="brand" href="#top" aria-label="QuasarAI, back to top"><img class="logo" src="logo.png" alt="QuasarAI"><span>QuasarAI</span></a>
-      <nav class="nav-links"><a href="#problem">Problem</a><a href="#demo">Fire map</a><a href="#how">How it works</a><a href="#results">Results</a><a href="#quote">Simulator</a><a href="#faq">FAQ</a></nav>
+      <nav class="nav-links"><a href="#problem">Problem</a><a href="#demo">Fire map</a><a href="#how">How it works</a><a href="#results">Results</a><a href="#space-s">From space</a><a href="#quote">Simulator</a><a href="#faq">FAQ</a></nav>
       <a class="btn btn-dark" href="#demo">Explore the map</a>
     </div>
-    <div class="mnav"><a href="#problem">Problem</a><a href="#demo">Fire map</a><a href="#how">How it works</a><a href="#results">Results</a><a href="#quote">Simulator</a><a href="#faq">FAQ</a></div>
+    <div class="mnav"><a href="#problem">Problem</a><a href="#demo">Fire map</a><a href="#how">How it works</a><a href="#results">Results</a><a href="#space-s">From space</a><a href="#quote">Simulator</a><a href="#faq">FAQ</a></div>
   </div>
 </header>
 
@@ -495,7 +512,7 @@ html,body{overflow-x:clip}
       <a class="btn btn-dark btn-lg" href="#demo">Explore the fire map</a>
       <a class="btn btn-lg" href="#how">See how it works</a>
     </div>
-    <p class="hero-mini">472,840 real NASA FIRMS detections · <a href="#quote">Try the detection simulator</a> · <a href="#results">See the validated results</a></p>
+    <p class="hero-mini">472,840 real NASA FIRMS detections · <a href="#space-s">40 years seen from space</a> · <a href="#quote">Try the detection simulator</a> · <a href="#results">See the validated results</a></p>
   </div>
 
   <!-- TICKER -->
@@ -671,6 +688,50 @@ html,body{overflow-x:clip}
     </div>
   </section>
 
+
+  <!-- SEEN FROM SPACE -->
+  <section class="wrap" id="space-s">
+    <p class="label">Seen from space</p>
+    <h2>How fire reshapes the land, <em class="grad">seen from orbit.</em></h2>
+    <p class="sub">Real NASA satellite imagery streamed live from NASA GIBS. Drag the handle to compare before and after, then watch forty years of change in the Amazon.</p>
+
+    <div class="opts" id="sites" style="margin-top:30px"></div>
+    <div class="vframe mapframe swipe" id="swipeFrame">
+      <div id="spaceMap" aria-label="Before and after satellite comparison"></div>
+      <span class="stag left" id="tagBefore"></span>
+      <span class="stag right" id="tagAfter"></span>
+      <div class="handle" id="handle" tabindex="0" role="slider" aria-label="Drag to compare before and after" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50"><span class="grip"><svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><path d="M6.5 4.5L2 9l4.5 4.5M11.5 4.5L16 9l-4.5 4.5" stroke="currentColor" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
+    </div>
+    <div class="vmeta">
+      <p class="sitestory" id="siteStory"></p>
+      <a class="btn" id="wvLink" href="https://worldview.earthdata.nasa.gov/" target="_blank" rel="noopener noreferrer">Open in NASA Worldview ↗</a>
+    </div>
+
+    <div class="split" style="margin-top:56px;align-items:start">
+      <div>
+        <p class="label">Time-lapse · 1984 → 2026</p>
+        <h3 style="font-size:clamp(24px,3vw,32px);letter-spacing:-.035em;font-weight:400">Forty years of the Amazon frontier.</h3>
+        <p class="sub" style="font-size:15.5px">The same 80 × 80 km window in Rondônia, Brazil. Landsat annual composites from the 1980s and 1990s, then Landsat 8/9 + Sentinel-2 (HLS) every dry season from 2016. Watch the fishbone of roads spread until forest becomes the exception.</p>
+        <ul class="checks" style="margin-top:22px">
+          <li><svg width="16" height="16" viewBox="0 0 16 16"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="1.8" fill="none"/></svg><span>Every frame is 30 m imagery from NASA GIBS. The best cloud-free date per year was picked automatically by our code.</span></li>
+          <li><svg width="16" height="16" viewBox="0 0 16 16"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="1.8" fill="none"/></svg><span>Colours shift between the old and new sensors. It's the same harmonization problem FireBridge solves for fire, so we show these images for visual comparison, not to measure area.</span></li>
+        </ul>
+      </div>
+      <div>
+        <div class="vframe mapframe tl" id="tlFrame">
+          <div id="tlMap" aria-label="Time-lapse of Rondônia, 1984 to 2026"></div>
+          <span class="tlyear" id="tlYear">1984</span>
+          <span class="vtag"><i></i><span id="tlSensor"></span></span>
+        </div>
+        <div class="timeline">
+          <button type="button" class="tplay" id="tlPlay" aria-label="Play the time-lapse"><svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path id="tlIco" d="M3.2 1.6v10.8a.6.6 0 0 0 .92.5l8.4-5.4a.6.6 0 0 0 0-1L4.12 1.1a.6.6 0 0 0-.92.5z" fill="currentColor"/></svg></button>
+          <input type="range" id="tlRange" min="0" max="19" value="0" step="1" aria-label="Year">
+          <span class="rangeval" id="tlLbl" style="font-size:16px;min-width:6ch">1984</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- SIMULATOR (quote layout) -->
   <section class="wrap" id="quote">
     <p class="label">Detection simulator</p>
@@ -753,7 +814,7 @@ html,body{overflow-x:clip}
       <details><summary>Why do MODIS and VIIRS disagree so much?</summary><p>VIIRS pixels are about 7× smaller in area (375 m vs 1 km), so a small fire fills a bigger share of the pixel and is easier to detect. One MODIS fire pixel typically contains ~4 VIIRS hotspots. The two satellites also no longer pass overhead at the same time.</p></details>
       <details><summary>Why does it matter if MODIS retires?</summary><p>Fire trends, smoke and carbon-emission inventories are built on the MODIS record, which starts in 2000. If VIIRS simply replaces it, the series would show a huge artificial jump. A harmonized, MODIS-equivalent VIIRS record keeps the 25-year series comparable.</p></details>
       <details><summary>How do you know the model works?</summary><p>We trained on the first 6 days and validated on the last 2 days, which the model never saw, against real MODIS-Aqua observations. The total count bias went from +695% to −13%, and the error per cell-day dropped about 6×.</p></details>
-      <details><summary>What NASA data did you use?</summary><p>NASA FIRMS near-real-time active-fire data: MODIS Collection 6.1 (Terra and Aqua, MCD14DL) and VIIRS 375 m Collection 2 from NOAA-21, global, 8–15 November 2026. Both are free and need no login.</p></details>
+      <details><summary>What NASA data did you use?</summary><p>NASA FIRMS near-real-time active-fire data: MODIS Collection 6.1 (Terra and Aqua, MCD14DL) and VIIRS 375 m Collection 2 from NOAA-21, global, 8–15 November 2026. Both are free and need no login. The satellite imagery in “Seen from space” is streamed from NASA GIBS: Landsat (WELD) annual composites, Harmonized Landsat Sentinel-2 (HLS) and MODIS Terra corrected reflectance.</p></details>
       <details><summary>What are the limitations?</summary><p>This run uses one week of data. Training on the multi-year FIRMS archive (2012 onwards) with per-biome models would make it much stronger. Part of the disagreement is real fire change in the ~2.4 h between overpasses, which a diurnal-cycle model could separate.</p></details>
       <details><summary>Did you use AI tools?</summary><p>Yes. An AI assistant (Claude) helped write and debug parts of the code, this website and the text. The team defined the approach, ran everything on real NASA data and reviewed the results. No AI-generated images are used; every chart is drawn from the data.</p></details>
       <details><summary>Who is QuasarAI?</summary><p>QuasarAI is the team behind FireBridge. A quasar is the brightest object in the universe; we turn massive amounts of space data into clear, useful insight.</p></details>
@@ -767,7 +828,7 @@ html,body{overflow-x:clip}
         <div class="brand" style="font-size:26px"><img class="logo" src="logo.png" alt=""><span>QuasarAI</span></div>
         <p style="color:var(--muted);font-size:14px;margin-top:8px">FireBridge: harmonizing MODIS and VIIRS fire hotspots.<br>NASA Space Apps Challenge 2026.</p>
       </div>
-      <div class="fcol"><a href="#problem">Problem</a><a href="#demo">Fire map</a><a href="#how">How it works</a><a href="#results">Results</a><a href="#quote">Simulator</a><a href="#faq">FAQ</a></div>
+      <div class="fcol"><a href="#problem">Problem</a><a href="#demo">Fire map</a><a href="#how">How it works</a><a href="#results">Results</a><a href="#space-s">From space</a><a href="#quote">Simulator</a><a href="#faq">FAQ</a></div>
       <div class="fcol">
         <a href="https://firms.modaps.eosdis.nasa.gov/active_fire/" target="_blank" rel="noopener noreferrer">NASA FIRMS data</a>
         <a class="ghlink" href="https://github.com/">Source code</a>
@@ -1223,6 +1284,79 @@ html,body{overflow-x:clip}
     if(!reduce)requestAnimationFrame(frame);
   }
   frame();
+})();
+</script>
+<script>
+/* ---------- SEEN FROM SPACE: swipe comparison + time-lapse (NASA GIBS) ---------- */
+(function(){
+  "use strict";
+  if(!window.L||!document.getElementById("spaceMap"))return;
+  var $=function(id){return document.getElementById(id);};
+  var GIBS="https://gibs.earthdata.nasa.gov/wmts/epsg3857/best/";
+  function gibs(c){
+    var nz=c.tms.indexOf("Level12")>-1?12:9;
+    return L.tileLayer(GIBS+c.layer+"/default/"+c.date+"/"+c.tms+"/{z}/{y}/{x}."+c.ext,
+      {maxNativeZoom:nz,maxZoom:nz+1,attribution:'Imagery: <a href="https://earthdata.nasa.gov/gibs" target="_blank" rel="noopener">NASA GIBS</a>',bounds:[[-85,-180],[85,180]]});
+  }
+  var PLAY="M3.2 1.6v10.8a.6.6 0 0 0 .92.5l8.4-5.4a.6.6 0 0 0 0-1L4.12 1.1a.6.6 0 0 0-.92.5z",PAUSE="M3 1.5h3v11H3zM8 1.5h3v11H8z";
+
+  fetch("space.json").then(function(r){return r.json();}).then(function(S){
+    /* ---- swipe comparison ---- */
+    var map=L.map("spaceMap",{zoomSnap:.5,scrollWheelZoom:false,worldCopyJump:false,minZoom:3,zoomControl:false});L.control.zoom({position:"bottomright"}).addTo(map);
+    map.on("focus",function(){map.scrollWheelZoom.enable();});map.on("blur",function(){map.scrollWheelZoom.disable();});
+    var before=null,after=null,pct=.5,frame=$("swipeFrame"),handle=$("handle");
+    function clip(){
+      if(!before||!after||!before.getContainer()||!after.getContainer())return;
+      var nw=map.containerPointToLayerPoint([0,0]),se=map.containerPointToLayerPoint(map.getSize());
+      var x=nw.x+map.getSize().x*pct;
+      before.getContainer().style.clip="rect("+[nw.y,x,se.y,nw.x].join("px,")+"px)";
+      after.getContainer().style.clip="rect("+[nw.y,se.x,se.y,x].join("px,")+"px)";
+      handle.style.left=(pct*100)+"%";handle.setAttribute("aria-valuenow",Math.round(pct*100));
+    }
+    map.on("move zoom zoomend moveend resize",clip);
+    function setSite(i){
+      var s=S.sites[i];
+      if(before)map.removeLayer(before);if(after)map.removeLayer(after);
+      map.setView(s.center,s.zoom,{animate:false});
+      before=gibs(s.before).addTo(map);after=gibs(s.after).addTo(map);pct=.5;clip();
+      $("tagBefore").innerHTML="<b>Before · "+s.before.label+"</b>"+s.before.sensor;
+      $("tagAfter").innerHTML="<b>After · "+s.after.label+"</b>"+s.after.sensor;
+      $("siteStory").innerHTML="<b style='color:var(--ink);font-weight:600'>"+s.name+".</b> "+s.story;
+      var b=s.bbox;$("wvLink").href="https://worldview.earthdata.nasa.gov/?v="+b.join(",")+"&l="+s.after.layer+",Coastlines_15m&t="+s.after.date;
+      document.querySelectorAll("#sites .opt").forEach(function(x,j){x.setAttribute("aria-pressed",j===i?"true":"false");});
+    }
+    var sc=$("sites");
+    S.sites.forEach(function(s,i){var b=document.createElement("button");b.type="button";b.className="opt";b.textContent=s.name.split(" · ")[0]+" · "+(s.name.split(" · ")[1]||"").split(",")[0];b.onclick=function(){setSite(i);};sc.appendChild(b);});
+    setSite(0);
+    var dragging=false;
+    function setFromX(cx){var r=frame.getBoundingClientRect();pct=Math.max(.02,Math.min(.98,(cx-r.left)/r.width));clip();}
+    handle.addEventListener("pointerdown",function(e){dragging=true;handle.classList.add("drag");handle.setPointerCapture(e.pointerId);map.dragging.disable();e.preventDefault();});
+    handle.addEventListener("pointermove",function(e){if(dragging)setFromX(e.clientX);});
+    function end(){if(!dragging)return;dragging=false;handle.classList.remove("drag");map.dragging.enable();}
+    handle.addEventListener("pointerup",end);handle.addEventListener("pointercancel",end);
+    handle.addEventListener("keydown",function(e){if(e.key==="ArrowLeft"){pct=Math.max(.02,pct-.05);clip();e.preventDefault();}if(e.key==="ArrowRight"){pct=Math.min(.98,pct+.05);clip();e.preventDefault();}});
+    /* intro sweep so visitors notice the handle */
+    if("IntersectionObserver" in window){var io=new IntersectionObserver(function(es){if(es[0].isIntersecting){io.disconnect();var t0=null;(function a(t){if(!t0)t0=t;var p=Math.min(1,(t-t0)/1800);pct=.5+.28*Math.sin(p*Math.PI*2)*(1-p);clip();if(p<1&&!dragging)requestAnimationFrame(a);})(performance.now());}},{threshold:.5});io.observe(frame);}
+
+    /* ---- time-lapse ---- */
+    var T=S.timelapse,F=T.frames,tl=L.map("tlMap",{zoomSnap:.5,scrollWheelZoom:false,attributionControl:true,zoomControl:false}).setView(T.center,T.zoom);L.control.zoom({position:"bottomright"}).addTo(tl);
+    tl.on("focus",function(){tl.scrollWheelZoom.enable();});tl.on("blur",function(){tl.scrollWheelZoom.disable();});
+    var layers={},cur=-1,rng=$("tlRange");rng.max=F.length-1;
+    function get(i){if(!layers[i]){layers[i]=gibs(F[i]);layers[i].setOpacity(0);layers[i].addTo(tl);}return layers[i];}
+    function show(i){
+      var L1=get(i),prev=cur;cur=i;
+      L1.setZIndex(10+i);L1.setOpacity(1);
+      if(prev>=0&&prev!==i&&layers[prev]){var p=layers[prev];setTimeout(function(){if(cur!==prev)p.setOpacity(0);},480);}
+      $("tlYear").textContent=F[i].year;$("tlLbl").textContent=F[i].year;$("tlSensor").textContent=F[i].sensor;rng.value=i;
+      if(i+1<F.length)get(i+1);
+    }
+    show(0);
+    rng.oninput=function(){stop();show(+rng.value);};
+    var timer=null,pb=$("tlPlay"),ico=$("tlIco");
+    function stop(){if(timer){clearInterval(timer);timer=null;ico.setAttribute("d",PLAY);}}
+    pb.onclick=function(){if(timer){stop();return;}ico.setAttribute("d",PAUSE);if(cur>=F.length-1)show(0);
+      timer=setInterval(function(){if(cur>=F.length-1){stop();return;}show(cur+1);},1100);};
+  });
 })();
 </script>
 </body>

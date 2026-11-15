@@ -1,0 +1,302 @@
+{
+ "sites": [
+  {
+   "id": "amazon",
+   "name": "Amazon \u00b7 Rond\u00f4nia, Brazil",
+   "center": [
+    -10.05,
+    -63.35
+   ],
+   "zoom": 10,
+   "before": {
+    "layer": "Landsat_WELD_CorrectedReflectance_TrueColor_Global_Annual",
+    "date": "2000-12-01",
+    "ext": "jpg",
+    "tms": "GoogleMapsCompatible_Level12",
+    "label": "2001",
+    "sensor": "Landsat 7 \u00b7 30 m"
+   },
+   "after": {
+    "layer": "HLS_S30_Nadir_BRDF_Adjusted_Reflectance",
+    "date": "2025-07-03",
+    "ext": "png",
+    "tms": "GoogleMapsCompatible_Level12",
+    "label": "2025",
+    "sensor": "Sentinel-2 (HLS) \u00b7 30 m"
+   },
+   "story": "Forest cleared along roads in the classic \u201cfishbone\u201d pattern. Fire is the main tool used to clear the felled forest, which is why this frontier lights up in the FIRMS record every dry season.",
+   "bbox": [
+    -63.9,
+    -10.5,
+    -62.8,
+    -9.6
+   ]
+  },
+  {
+   "id": "camp",
+   "name": "Camp Fire \u00b7 Paradise, California, 2018",
+   "center": [
+    39.75,
+    -121.6
+   ],
+   "zoom": 11,
+   "before": {
+    "layer": "HLS_S30_Nadir_BRDF_Adjusted_Reflectance",
+    "date": "2018-10-27",
+    "ext": "png",
+    "tms": "GoogleMapsCompatible_Level12",
+    "label": "27 Oct 2018",
+    "sensor": "Sentinel-2 (HLS) \u00b7 30 m"
+   },
+   "after": {
+    "layer": "HLS_S30_Nadir_BRDF_Adjusted_Reflectance",
+    "date": "2018-12-06",
+    "ext": "png",
+    "tms": "GoogleMapsCompatible_Level12",
+    "label": "6 Dec 2018",
+    "sensor": "Sentinel-2 (HLS) \u00b7 30 m"
+   },
+   "story": "The deadliest wildfire in California's history burned about 620 km\u00b2 in November 2018. The dark scar covers the town of Paradise and the ridges around it.",
+   "bbox": [
+    -121.9,
+    39.55,
+    -121.3,
+    39.95
+   ]
+  },
+  {
+   "id": "aus",
+   "name": "Black Summer \u00b7 New South Wales & Victoria, 2019\u201320",
+   "center": [
+    -36.4,
+    149.1
+   ],
+   "zoom": 7,
+   "before": {
+    "layer": "MODIS_Terra_CorrectedReflectance_Bands721",
+    "date": "2019-10-28",
+    "ext": "jpg",
+    "tms": "GoogleMapsCompatible_Level9",
+    "label": "28 Oct 2019",
+    "sensor": "MODIS Terra \u00b7 bands 7-2-1 \u00b7 250 m"
+   },
+   "after": {
+    "layer": "MODIS_Terra_CorrectedReflectance_Bands721",
+    "date": "2020-01-30",
+    "ext": "jpg",
+    "tms": "GoogleMapsCompatible_Level9",
+    "label": "30 Jan 2020",
+    "sensor": "MODIS Terra \u00b7 bands 7-2-1 \u00b7 250 m"
+   },
+   "story": "In false colour (bands 7-2-1), healthy vegetation is green and fresh burn scars are red-brown. In New South Wales alone, more than 5 million hectares burned during the 2019\u201320 Black Summer.",
+   "bbox": [
+    146.5,
+    -38.5,
+    151.5,
+    -34.5
+   ]
+  },
+  {
+   "id": "pantanal",
+   "name": "Pantanal \u00b7 Brazil, 2020",
+   "center": [
+    -17.8,
+    -56.8
+   ],
+   "zoom": 7,
+   "before": {
+    "layer": "MODIS_Terra_CorrectedReflectance_Bands721",
+    "date": "2019-07-10",
+    "ext": "jpg",
+    "tms": "GoogleMapsCompatible_Level9",
+    "label": "10 Jul 2019",
+    "sensor": "MODIS Terra \u00b7 bands 7-2-1 \u00b7 250 m"
+   },
+   "after": {
+    "layer": "MODIS_Terra_CorrectedReflectance_Bands721",
+    "date": "2020-10-08",
+    "ext": "jpg",
+    "tms": "GoogleMapsCompatible_Level9",
+    "label": "8 Oct 2020",
+    "sensor": "MODIS Terra \u00b7 bands 7-2-1 \u00b7 250 m"
+   },
+   "story": "The world's largest tropical wetland had its worst fire year on record in 2020, during an extreme drought: roughly a quarter of the biome burned. Burn scars appear red-brown across the floodplain.",
+   "bbox": [
+    -59.0,
+    -20.0,
+    -54.5,
+    -15.5
+   ]
+  }
+ ],
+ "timelapse": {
+  "name": "Rond\u00f4nia, Brazil",
+  "center": [
+   -10.05,
+   -63.35
+  ],
+  "zoom": 10,
+  "frames": [
+   {
+    "year": "1984",
+    "layer": "Landsat_WELD_CorrectedReflectance_TrueColor_Global_Annual",
+    "date": "1983-12-01",
+    "ext": "jpg",
+    "tms": "GoogleMapsCompatible_Level12",
+    "sensor": "Landsat 5/7 \u00b7 annual composite \u00b7 30 m"
+   },
+   {
+    "year": "1985",
+    "layer": "Landsat_WELD_CorrectedReflectance_TrueColor_Global_Annual",
+    "date": "1984-12-01",
+    "ext": "jpg",
+    "tms": "GoogleMapsCompatible_Level12",
+    "sensor": "Landsat 5/7 \u00b7 annual composite \u00b7 30 m"
+   },
+   {
+    "year": "1986",
+    "layer": "Landsat_WELD_CorrectedReflectance_TrueColor_Global_Annual",
+    "date": "1985-12-01",
+    "ext": "jpg",
+    "tms": "GoogleMapsCompatible_Level12",
+    "sensor": "Landsat 5/7 \u00b7 annual composite \u00b7 30 m"
+   },
+   {
+    "year": "1989",
+    "layer": "Landsat_WELD_CorrectedReflectance_TrueColor_Global_Annual",
+    "date": "1988-12-01",
+    "ext": "jpg",
+    "tms": "GoogleMapsCompatible_Level12",
+    "sensor": "Landsat 5/7 \u00b7 annual composite \u00b7 30 m"
+   },
+   {
+    "year": "1990",
+    "layer": "Landsat_WELD_CorrectedReflectance_TrueColor_Global_Annual",
+    "date": "1989-12-01",
+    "ext": "jpg",
+    "tms": "GoogleMapsCompatible_Level12",
+    "sensor": "Landsat 5/7 \u00b7 annual composite \u00b7 30 m"
+   },
+   {
+    "year": "1991",
+    "layer": "Landsat_WELD_CorrectedReflectance_TrueColor_Global_Annual",
+    "date": "1990-12-01",
+    "ext": "jpg",
+    "tms": "GoogleMapsCompatible_Level12",
+    "sensor": "Landsat 5/7 \u00b7 annual composite \u00b7 30 m"
+   },
+   {
+    "year": "1999",
+    "layer": "Landsat_WELD_CorrectedReflectance_TrueColor_Global_Annual",
+    "date": "1998-12-01",
+    "ext": "jpg",
+    "tms": "GoogleMapsCompatible_Level12",
+    "sensor": "Landsat 5/7 \u00b7 annual composite \u00b7 30 m"
+   },
+   {
+    "year": "2000",
+    "layer": "Landsat_WELD_CorrectedReflectance_TrueColor_Global_Annual",
+    "date": "1999-12-01",
+    "ext": "jpg",
+    "tms": "GoogleMapsCompatible_Level12",
+    "sensor": "Landsat 5/7 \u00b7 annual composite \u00b7 30 m"
+   },
+   {
+    "year": "2001",
+    "layer": "Landsat_WELD_CorrectedReflectance_TrueColor_Global_Annual",
+    "date": "2000-12-01",
+    "ext": "jpg",
+    "tms": "GoogleMapsCompatible_Level12",
+    "sensor": "Landsat 5/7 \u00b7 annual composite \u00b7 30 m"
+   },
+   {
+    "year": "2016",
+    "layer": "HLS_S30_Nadir_BRDF_Adjusted_Reflectance",
+    "date": "2016-07-30",
+    "ext": "png",
+    "tms": "GoogleMapsCompatible_Level12",
+    "sensor": "Landsat 8/9 + Sentinel-2 (HLS) \u00b7 2016-07-30 \u00b7 30 m"
+   },
+   {
+    "year": "2017",
+    "layer": "HLS_S30_Nadir_BRDF_Adjusted_Reflectance",
+    "date": "2017-06-15",
+    "ext": "png",
+    "tms": "GoogleMapsCompatible_Level12",
+    "sensor": "Landsat 8/9 + Sentinel-2 (HLS) \u00b7 2017-06-15 \u00b7 30 m"
+   },
+   {
+    "year": "2018",
+    "layer": "HLS_S30_Nadir_BRDF_Adjusted_Reflectance",
+    "date": "2018-06-25",
+    "ext": "png",
+    "tms": "GoogleMapsCompatible_Level12",
+    "sensor": "Landsat 8/9 + Sentinel-2 (HLS) \u00b7 2018-06-25 \u00b7 30 m"
+   },
+   {
+    "year": "2019",
+    "layer": "HLS_S30_Nadir_BRDF_Adjusted_Reflectance",
+    "date": "2019-07-10",
+    "ext": "png",
+    "tms": "GoogleMapsCompatible_Level12",
+    "sensor": "Landsat 8/9 + Sentinel-2 (HLS) \u00b7 2019-07-10 \u00b7 30 m"
+   },
+   {
+    "year": "2020",
+    "layer": "HLS_S30_Nadir_BRDF_Adjusted_Reflectance",
+    "date": "2020-08-18",
+    "ext": "png",
+    "tms": "GoogleMapsCompatible_Level12",
+    "sensor": "Landsat 8/9 + Sentinel-2 (HLS) \u00b7 2020-08-18 \u00b7 30 m"
+   },
+   {
+    "year": "2021",
+    "layer": "HLS_S30_Nadir_BRDF_Adjusted_Reflectance",
+    "date": "2021-07-09",
+    "ext": "png",
+    "tms": "GoogleMapsCompatible_Level12",
+    "sensor": "Landsat 8/9 + Sentinel-2 (HLS) \u00b7 2021-07-09 \u00b7 30 m"
+   },
+   {
+    "year": "2022",
+    "layer": "HLS_S30_Nadir_BRDF_Adjusted_Reflectance",
+    "date": "2022-06-24",
+    "ext": "png",
+    "tms": "GoogleMapsCompatible_Level12",
+    "sensor": "Landsat 8/9 + Sentinel-2 (HLS) \u00b7 2022-06-24 \u00b7 30 m"
+   },
+   {
+    "year": "2023",
+    "layer": "HLS_S30_Nadir_BRDF_Adjusted_Reflectance",
+    "date": "2023-06-19",
+    "ext": "png",
+    "tms": "GoogleMapsCompatible_Level12",
+    "sensor": "Landsat 8/9 + Sentinel-2 (HLS) \u00b7 2023-06-19 \u00b7 30 m"
+   },
+   {
+    "year": "2024",
+    "layer": "HLS_S30_Nadir_BRDF_Adjusted_Reflectance",
+    "date": "2024-07-03",
+    "ext": "png",
+    "tms": "GoogleMapsCompatible_Level12",
+    "sensor": "Landsat 8/9 + Sentinel-2 (HLS) \u00b7 2024-07-03 \u00b7 30 m"
+   },
+   {
+    "year": "2025",
+    "layer": "HLS_S30_Nadir_BRDF_Adjusted_Reflectance",
+    "date": "2025-07-03",
+    "ext": "png",
+    "tms": "GoogleMapsCompatible_Level12",
+    "sensor": "Landsat 8/9 + Sentinel-2 (HLS) \u00b7 2025-07-03 \u00b7 30 m"
+   },
+   {
+    "year": "2026",
+    "layer": "HLS_S30_Nadir_BRDF_Adjusted_Reflectance",
+    "date": "2026-07-08",
+    "ext": "png",
+    "tms": "GoogleMapsCompatible_Level12",
+    "sensor": "Landsat 8/9 + Sentinel-2 (HLS) \u00b7 2026-07-08 \u00b7 30 m"
+   }
+  ]
+ }
+}

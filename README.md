@@ -23,6 +23,19 @@ FireBridge matches both sensors detection by detection, learns how they differ, 
 - The detectability model has a test AUC of 0.68. It predicts the total number of matched detections almost exactly: 10,187 predicted vs 10,075 observed.
 - At night MODIS detects 2–3× more small fires than by day at the same fire power, because there is no solar contamination.
 
+## Seen from space (satellite imagery)
+
+The website also includes a **before/after swipe comparison** of four fire-affected landscapes and a **40-year time-lapse (1984–2026)** of the Amazon frontier in Rondônia, Brazil. All imagery is streamed live from **NASA GIBS**:
+
+| Site | Before | After |
+|---|---|---|
+| Amazon · Rondônia | Landsat WELD annual composite (30 m), 2001 | HLS Sentinel-2 (30 m), Jul 2025 |
+| Camp Fire · Paradise, CA | HLS Sentinel-2, 27 Oct 2018 | HLS Sentinel-2, 6 Dec 2018 |
+| Black Summer · SE Australia | MODIS Terra bands 7-2-1 (250 m), 28 Oct 2019 | MODIS Terra 7-2-1, 30 Jan 2020 |
+| Pantanal · Brazil | MODIS Terra 7-2-1, 10 Jul 2019 | MODIS Terra 7-2-1, 8 Oct 2020 |
+
+`gibs_pick.py` chooses the clearest date for each site and year by downloading real GIBS tiles and scoring cloud cover and missing data. Colours differ between the old and new sensors (the same harmonization problem FireBridge solves for fire), so these images are used for visual comparison, not to measure area.
+
 ## Method
 
 1. **Common schema.** Location, UTC time, FRP, MIR/TIR brightness temperatures, confidence (MODIS 0–100 → low/nominal/high), day/night.

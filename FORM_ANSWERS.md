@@ -18,7 +18,7 @@ https://martinaravenap.github.io/firebridge/
 (Code: https://github.com/martinaravenap/firebridge)
 
 ## Detailed Project Description
-**What it does:** FireBridge takes the MODIS (1 km) and VIIRS (375 m) active-fire hotspot records from NASA FIRMS and produces a harmonized, MODIS-equivalent 0.25° daily fire grid. An interactive website lets anyone compare the raw sensors with the harmonized product on an animated day-by-day fire map, test a detection simulator (fire power, day/night, viewing angle), explore interactive charts and download the harmonized grid.
+**What it does:** FireBridge takes the MODIS (1 km) and VIIRS (375 m) active-fire hotspot records from NASA FIRMS and produces a harmonized, MODIS-equivalent 0.25° daily fire grid. An interactive website lets anyone compare the raw sensors with the harmonized product on an animated day-by-day fire map, test a detection simulator (fire power, day/night, viewing angle), explore interactive charts and download the harmonized grid. A "Seen from space" section adds a before/after satellite swipe comparison of four fire-affected landscapes (Amazon, Camp Fire, Black Summer, Pantanal) and a 40-year (1984–2026) 30 m time-lapse of the Amazon frontier, using NASA GIBS imagery with the clearest dates chosen automatically by our code.
 
 **How it works:**
 1. Common schema: both datasets are put on the same fields (location, UTC time, fire radiative power, brightness temperatures, confidence class, day/night).
@@ -41,6 +41,7 @@ Yes. We used an AI assistant (Claude) to help write and debug parts of the Pytho
 ## NASA Data
 - NASA FIRMS (Fire Information for Resource Management System): MODIS Collection 6.1 near-real-time active fire data (Terra and Aqua, MCD14DL), global, 7 days (8–15 Nov 2026). https://firms.modaps.eosdis.nasa.gov/active_fire/
 - NASA FIRMS VIIRS 375 m Collection 2 near-real-time active fire data, NOAA-21 (VJ214IMGTDL_NRT), global, same period.
+- NASA GIBS (Global Imagery Browse Services) satellite imagery for the "Seen from space" section: Landsat WELD annual true-colour composites (1984–2001), Harmonized Landsat Sentinel-2 (HLS S30, 2016–2026) and MODIS Terra corrected reflectance, bands 7-2-1 (2019–2020). https://earthdata.nasa.gov/gibs
 
 ## Space Agency Partner Data and Other References
 - No partner-agency data were used in this version.

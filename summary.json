@@ -1,0 +1,196 @@
+{
+ "n_modis": 77206,
+ "n_viirs": 395634,
+ "period": [
+  "2026-11-08",
+  "2026-11-15"
+ ],
+ "viirs_platform": "NOAA-21",
+ "pairs": 84212,
+ "median_dt_min": 143.0,
+ "modis_cotemporal": 51176,
+ "viirs_cotemporal": 221172,
+ "pct_modis_confirmed_by_viirs": 42.18188213224949,
+ "pct_viirs_seen_by_modis": 24.610258079684588,
+ "viirs_per_modis_pixel": 3.9010515588085424,
+ "frp_fit": {
+  "slope": 0.3119634237474612,
+  "intercept": 0.8377762658518553,
+  "r2": 0.16479909565706452,
+  "n": 21583,
+  "ratio_sum_modis_over_viirs": 0.5446412073420336
+ },
+ "detect_model": {
+  "auc_test": 0.6786949320438772,
+  "test_days": [
+   "2026-11-14",
+   "2026-11-15"
+  ],
+  "pred_vs_obs_matched": [
+   10187.386107832583,
+   10075
+  ]
+ },
+ "validation": {
+  "cells": 16102,
+  "days": [
+   "2026-11-14",
+   "2026-11-15"
+  ],
+  "note": "all 0.25deg cell-days with any MODIS-Aqua or VIIRS fire on held-out days",
+  "raw_viirs_count": {
+   "r": 0.42105770322449954,
+   "bias_pct": 694.8153338004204,
+   "mae": 4.629424916159484
+  },
+  "harmonized_count": {
+   "r": 0.40716106092909143,
+   "bias_pct": -13.34584258323408,
+   "mae": 0.7854508065139636
+  },
+  "raw_viirs_frp": {
+   "r": 0.42083087658253965,
+   "bias_pct": 147.94776301880762,
+   "mae": 54.17016147062476
+  },
+  "harmonized_frp": {
+   "r": 0.190451650138195,
+   "bias_pct": -17.31529026215022,
+   "mae": 28.93734904892419
+  },
+  "1deg_raw_viirs_count": {
+   "r": 0.8437754445356312,
+   "bias_pct": 694.8153338004204,
+   "mae": 19.07092391304348
+  },
+  "1deg_harmonized_count": {
+   "r": 0.8487876086433971,
+   "bias_pct": -13.345842583234063,
+   "mae": 1.8252129661445837
+  }
+ },
+ "regions": [
+  {
+   "region": "Africa & Middle East",
+   "modis": 37544,
+   "viirs": 225412,
+   "viirs_modis_eq": 24028.440641260666,
+   "modis_aqua": 26367,
+   "pct_modis_confirmed": 44.13438190845505,
+   "pct_viirs_seen": 20.50757554383094
+  },
+  {
+   "region": "Australia & Oceania",
+   "modis": 11844,
+   "viirs": 60478,
+   "viirs_modis_eq": 5233.582892497252,
+   "modis_aqua": 5796,
+   "pct_modis_confirmed": 63.112391930835734,
+   "pct_viirs_seen": 34.34742415329019
+  },
+  {
+   "region": "Europe",
+   "modis": 191,
+   "viirs": 2470,
+   "viirs_modis_eq": 87.2440750123421,
+   "modis_aqua": 127,
+   "pct_modis_confirmed": 45.05494505494506,
+   "pct_viirs_seen": 38.98916967509025
+  },
+  {
+   "region": "North America",
+   "modis": 2047,
+   "viirs": 11534,
+   "viirs_modis_eq": 1252.4912630651404,
+   "modis_aqua": 1246,
+   "pct_modis_confirmed": 59.89010989010989,
+   "pct_viirs_seen": 47.694934547524184
+  },
+  {
+   "region": "North Asia",
+   "modis": 777,
+   "viirs": 7827,
+   "viirs_modis_eq": 371.36146980430397,
+   "modis_aqua": 660,
+   "pct_modis_confirmed": 25.8751902587519,
+   "pct_viirs_seen": 8.92638036809816
+  },
+  {
+   "region": "Other",
+   "modis": 0,
+   "viirs": 3,
+   "viirs_modis_eq": 0.258897635186728,
+   "modis_aqua": 0,
+   "pct_modis_confirmed": null,
+   "pct_viirs_seen": null
+  },
+  {
+   "region": "South & Central America",
+   "modis": 17422,
+   "viirs": 57178,
+   "viirs_modis_eq": 6953.3235739692645,
+   "modis_aqua": 10038,
+   "pct_modis_confirmed": 39.41576224769246,
+   "pct_viirs_seen": 35.79945085944259
+  },
+  {
+   "region": "South & SE Asia",
+   "modis": 7381,
+   "viirs": 30732,
+   "viirs_modis_eq": 5083.03502123861,
+   "modis_aqua": 5921,
+   "pct_modis_confirmed": 14.234016887816647,
+   "pct_viirs_seen": 14.932935916542474
+  }
+ ],
+ "daily": [
+  {
+   "day": "2026-11-08",
+   "modis_aqua": 7929.0,
+   "viirs": 60759.0,
+   "viirs_eq": 6558.669583390571
+  },
+  {
+   "day": "2026-11-09",
+   "modis_aqua": 6078.0,
+   "viirs": 56887.0,
+   "viirs_eq": 5938.690737642817
+  },
+  {
+   "day": "2026-11-10",
+   "modis_aqua": 7054.0,
+   "viirs": 55375.0,
+   "viirs_eq": 6160.979564199089
+  },
+  {
+   "day": "2026-11-11",
+   "modis_aqua": 7204.0,
+   "viirs": 47798.0,
+   "viirs_eq": 5503.8705203093705
+  },
+  {
+   "day": "2026-11-12",
+   "modis_aqua": 5996.0,
+   "viirs": 49026.0,
+   "viirs_eq": 5258.8755028872765
+  },
+  {
+   "day": "2026-11-13",
+   "modis_aqua": 5903.0,
+   "viirs": 46379.0,
+   "viirs_eq": 4931.0350585445585
+  },
+  {
+   "day": "2026-11-14",
+   "modis_aqua": 5919.0,
+   "viirs": 41713.0,
+   "viirs_eq": 4435.060653490091
+  },
+  {
+   "day": "2026-11-15",
+   "modis_aqua": 4072.0,
+   "viirs": 37697.0,
+   "viirs_eq": 4222.556214018994
+  }
+ ]
+}
